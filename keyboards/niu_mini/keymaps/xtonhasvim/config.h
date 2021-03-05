@@ -3,20 +3,17 @@
 
 #include "../../config.h"
 
-#define MUSIC_MASK (keycode != KC_NO)
+// #define MUSIC_MASK (keycode != KC_NO)
 
 /*
  * MIDI options
  */
 
-/* Prevent use of disabled MIDI features in the keymap */
-//#define MIDI_ENABLE_STRICT 1
-
 /* enable basic MIDI features:
    - MIDI notes can be sent when in Music mode is on
 */
 
-#define MIDI_BASIC
+// #define MIDI_BASIC
 
 /* enable advanced MIDI features:
    - MIDI notes can be added to the keymap
@@ -31,12 +28,6 @@
 
 // help for fast typist+dual function keys?
 #define PERMISSIVE_HOLD
-
-/* disable debug print */
-#define NO_DEBUG
-
-/* disable print */
-#define NO_PRINT
 
 /* speed up mousekeys a bit */
 #define MOUSEKEY_DELAY             50

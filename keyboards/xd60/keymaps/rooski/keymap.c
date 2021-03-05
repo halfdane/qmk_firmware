@@ -8,9 +8,6 @@
 // Define tapping term
 #define TAPPING_TERM    150
 
-// Fillers to make layering more clear
-#define _______ KC_TRNS
-#define XXXXXXX KC_NO
 // Layer definitions~
 #define _BL 0
 #define _FL 1
@@ -57,26 +54,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       XXXXXXX, XXXXXXX, KC_VOLD, KC_VOLU, KC_MUTE, XXXXXXX, XXXXXXX, RGB_SAD, RGB_SAI, RGB_HUD, RGB_HUI, XXXXXXX, XXXXXXX, RGB_VAI, BL_STEP,  \
       XXXXXXX, XXXXXXX, XXXXXXX,                            XXXXXXX,                            TO(_BL), XXXXXXX, RGB_TOG, RGB_VAD, RGB_MOD),
 
-};
-
-// Macros
-const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
-
-  // MACRODOWN only works in this function
-  switch(id) {
-    case 0:
-      if (record->event.pressed) {
-        register_code(KC_RSFT);
-        backlight_step();
-      }
-      else { unregister_code(KC_RSFT); }
-      break;
-  }
-
-  return MACRO_NONE;
-};
-
-// Loop
-void matrix_scan_user(void) {
-  // Empty
 };

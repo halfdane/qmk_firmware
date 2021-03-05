@@ -58,13 +58,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	return true;
 };
 
-#define _______ KC_TRNS
-#define XXXXXXX KC_NO
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_LAYER0] = LAYOUT(                 \
              KC_ESC,     TO(_LAYER1), \
-    KC_Z,    KC_X,       KC_SPACE     \
+    KC_Z,    KC_X,       KC_ENT       \
   ),
   [_LAYER1] = LAYOUT(                 \
              MUTE,       TO(_LAYER2), \
@@ -80,18 +77,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
-const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
-  return MACRO_NONE ;
-}
-
 void matrix_init_user(void) {
   for (int i=0; i<5; i++) {
     backlight_led_on(i);
   }
-}
-
-void matrix_scan_user(void) {
-}
-
-void led_set_user(uint8_t usb_led) {
 }
