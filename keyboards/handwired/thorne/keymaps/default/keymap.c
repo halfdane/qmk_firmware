@@ -16,11 +16,11 @@
 
 #define RE RESET
 
-enum layers { BASE, MBO, MEDR, NAVR, MOUR, NSSL, NSL, FUNL };
+enum layers { COLEMAK, QWERTY, MBO, MEDR, NAVR, MOUR, NSSL, NSL, FUNL };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-[BASE] = LAYOUT(
+[COLEMAK] = LAYOUT(
      KC_Q,     KC_W,      KC_F,     KC_P,     KC_B,         KC_J, KC_L,     KC_U,      KC_Y,        KC_QUOTE,
      G_(KC_A), A_(KC_R),  C_(KC_S), S_(KC_T), KC_G,         KC_M, S_(KC_N), C_(KC_E),  A_(KC_I),    G_(KC_O),
      KC_Z,     GR_(KC_X), KC_C,     KC_D,     KC_V,         KC_K, KC_H,     KC_COMM,   GR_(KC_DOT), KC_SLSH,
@@ -29,8 +29,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       LT(MOUR, KC_TAB), LT(NSSL, KC_ENT)
   ),
 
+[QWERTY] = LAYOUT(
+     KC_Q,     KC_W,      KC_E,     KC_R,     KC_T,         KC_Y, KC_U,     KC_I,      KC_O,        KC_P,
+     G_(KC_A), A_(KC_S),  C_(KC_D), S_(KC_F), KC_G,         KC_H, S_(KC_J), C_(KC_K),  A_(KC_L),    G_(KC_QUOT),
+     KC_Z,     GR_(KC_X), KC_C,     KC_V,     KC_B,         KC_N, KC_M,     KC_COMM,   GR_(KC_DOT), KC_SLSH,
+                             LT(MEDR, KC_ESC),                  LT(FUNL, KC_DEL),
+                                LT(NAVR, KC_SPC),           LT(NSL, KC_BSPC),
+                                      LT(MOUR, KC_TAB), LT(NSSL, KC_ENT)
+  ),
+
 [NAVR] = LAYOUT(
-     RESET,   __,      __,      __,      __,                 U_RDO,   U_PST,   U_CPY,   U_CUT,   U_UND,
+     RESET,   __,      __,      DF(QWERTY), __,              U_RDO,   U_PST,   U_CPY,   U_CUT,   U_UND,
      KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, __,                 KC_CAPS, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
      KC_ALGR, U_CUT,   U_CPY,   U_PST,   __,                 KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
                                 __,                                   KC_DEL,
@@ -59,14 +68,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [FUNL] = LAYOUT(
      KC_F12, KC_F7, KC_F8, KC_F9, KC_PSCR,                  __, __,      __,      __,      __,
      KC_F11, KC_F4, KC_F5, KC_F6, KC_SLCK,                  __, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
-     KC_F10, KC_F1, KC_F2, KC_F4, KC_PAUS,                  __, __,      __,      __,      KC_ALGR,
+     KC_F10, KC_F1, KC_F2, KC_F3, KC_PAUS,                  __, __,      __,      __,      KC_ALGR,
                            KC_APP,                              __,
                                   KC_SPC,                   __,
                                            KC_TAB,      __
   ),
 
 [NSL] = LAYOUT(
-     KC_LBRC, KC_7, KC_8, KC_9, KC_RBRC,               __, __,      __,      __,      __,
+     KC_LBRC, KC_7, KC_8, KC_9, KC_RBRC,               __, DF(COLEMAK), __,  __,      __,
      KC_SCLN, KC_4, KC_5, KC_6, KC_EQL,                __, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
      KC_GRV,  KC_1, KC_2, KC_3, KC_BSLS,               __, __,      __,      __,      KC_ALGR,
                            KC_DOT,                         __,
