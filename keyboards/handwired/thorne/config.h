@@ -17,6 +17,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
+#include "config_common.h"
+
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0xCAFE
 #define PRODUCT_ID      0x1337
@@ -40,7 +42,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DIODE_DIRECTION COL2ROW
 
 // use I2C on AVR
-#define USE_I2C
+#define SOFT_SERIAL_PIN D2
 
 // default but used in macros
 #define TAPPING_TERM 200
