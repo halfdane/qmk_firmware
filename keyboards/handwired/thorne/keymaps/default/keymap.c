@@ -70,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_F11, KC_F4, KC_F5, KC_F6, KC_SLCK,                  __, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
      KC_F10, KC_F1, KC_F2, KC_F3, KC_PAUS,                  __, __,      __,      __,      KC_ALGR,
                            KC_APP,                              __,
-                                  KC_SPC,                   __,``
+                                  KC_SPC,                   __,
                                            KC_TAB,      __
   ),
 
@@ -94,3 +94,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
+bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(1, KC_BSPC):
+            return true;
+        default:
+            return false;
+    }
+}
